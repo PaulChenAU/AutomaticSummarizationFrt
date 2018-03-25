@@ -1,6 +1,6 @@
 var connect = require('connect');
 
 connect.createServer(
-    connect.static("../angularjs")
+    connect.static("../AutomaticSummarizationFrt")
     
-).listen(5000);
+).listen(5300);
