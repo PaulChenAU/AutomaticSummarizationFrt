@@ -1,23 +1,28 @@
 <!DOCTYPE html>
-<html ng-app="main">
+<html ng-app="mainM">
 <head>
     <title>Automatic Summrization Tool</title>
     <script src="angular.js"></script>
-    <link href="bootstrap.css" rel="stylesheet">
-    <link href="bootstrap-theme.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
+    <link href="css/bootstrap-combined.min.css" rel="stylesheet">
+    <link href="css/layoutit.css" rel="stylesheet">
     <script src="ngmodules/angular-route.js"></script>
-    <script src="controllers/summaryCtrl.js"></script>
+    <script>
+         var mainM = angular.module("mainM",[])
+    </script>
+    <script src="controllers/mainCtrl.js"></script>
 </head>
 <body ng-controller="mainCtrl">
-        <div class="container-fluid">
-                <div class="row-fluid">
-                    <div class="span12">
-                        <h3 class="text-left">
-                            h3. 这是一套可视化布局系统.
-                        </h3>
-                    </div>
-                </div>
-                <div class="row-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <h3 class="text-left">
+                    文本摘要自动生成工具
+                </h3>
+            </div>
+        </div>
+                <div class="row">
                     <div class="span2">
                         <ul class="nav nav-list well">
                             <li class="nav-header">
