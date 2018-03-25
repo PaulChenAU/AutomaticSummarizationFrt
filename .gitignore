@@ -6,3 +6,4 @@ tmp/
 .DS_Store
 .idea/
 PC_tools/
+node_modules/
