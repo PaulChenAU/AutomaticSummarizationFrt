@@ -1,3 +1,14 @@
 body{
     margin:20px;
 }
+.title{
+    color:whitesmoke;left:20px;position:relative;
+}
+.userinfo{
+    font-size: 20px;
+}
+.title-logo{
+    left: 15px;
+    position: relative;
+    height: 42px;
+}
