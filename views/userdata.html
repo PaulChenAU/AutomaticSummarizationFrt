@@ -1,0 +1,26 @@
+<div class="well" ng-controller="userdataCtrl">
+    <form name="loginForm" class="form-horizontal">
+            <div class="control-group">
+                <label class="control-label" >用户名:</label>
+                <div class="controls">
+                    <label class="label label-default" >{{ userdata.username }}</label>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputPassword">昵称:</label>
+                <div class="controls">
+                    <input id="inputPassword" ng-model="userdata.nickname" type="text"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+
+                    <div class="alert alert-danger" ng-show="changeError">
+                            Change Data Failed ({{ changeError.status }}).Try again.
+                    </div>
+
+                    <button ng-click="" class="btn btn-primary" >修改</button>
+                </div>
+            </div>
+    </form>
+</div>
