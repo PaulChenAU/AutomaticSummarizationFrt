@@ -9,9 +9,9 @@
         <b>欢迎回来:</b>
         <div style="float:right;display:inline;left:10px;position:relative;">
             <div style="width:40px;height:40px;float:left;display:inline;margin-right: 10px">
-                <img src="http://localhost:5800/avatar/admin/20" class="radius-avatar"/>
+                <img ng-src="{{ user.avatar_url }}" class="radius-avatar"/>
             </div>
-            蜡笔小新
+            {{ user.nickname }}
         </div>
     </div>
     <!-- <a href="#!/checkout" class="btn btn-default navbar-btn">Check out</a> -->
