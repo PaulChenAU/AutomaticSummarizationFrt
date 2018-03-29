@@ -17,7 +17,6 @@ angular.module("user")
 
             }).catch(function(error){
                 $scope.loginError = error;
-                console.log($scope.loginError);
             })
             }
         })
