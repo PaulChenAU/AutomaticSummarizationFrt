@@ -11,20 +11,22 @@
     <!-- <link href="css/layoutit.css" rel="stylesheet"> -->
     <script src="ngmodules/angular-route.js"></script>
     <script>
-        angular.module("mainM", ["ngRoute", "user"])
+        angular.module("mainM", ["ngRoute", "user", "url"])
             .config(['$routeProvider', function ($routeProvider) {
                 $routeProvider.when("/deeplearning", {
                     templateUrl: "views/deeplearning.html"
                 }).when("/pagerank", {
                     templateUrl: "views/pagerank.html"
                 }).otherwise({
-                    templateUrl: "views/default.html"
+                    templateUrl: "views/login.html"
                 })
-            }])
+            }])  
 
     </script>
     <script src="controllers/mainCtrl.js"></script>
     <script src="components/user/user.js"></script>
+    <script src="controllers/loginCtrl.js"></script>
+    <script src="controllers/urlCtrl.js"></script>
 </head>
 
 <body ng-controller="mainCtrl">
@@ -37,34 +39,34 @@
                 </h3>
             <!-- </div> -->
         </nav>
-        <div class="row-fluid">
+        <div class="row-fluid" ng-controller="urlCtrl">
             <div class="span2">
                 <ul class="nav nav-list well">
                     <li class="nav-header">
                         方法分类
                     </li>
                     <li class="active">
-                        <a href="#!/deeplearning">深度学习</a>
+                        <a href="" ng-click="jumpDeeplearning()" >深度学习</a>
                     </li>
                     <li>
-                        <a href="#!/pagerank">基于PageRank</a>
+                        <a href="" ng-click="jumpPagerank()">基于PageRank</a>
                     </li>
                     <li>
-                        <a href="#">应用</a>
+                        <a href="">应用</a>
                     </li>
                     <li class="nav-header">
                         相关
                     </li>
                     <li>
-                        <a href="#">资料</a>
+                        <a href="">资料</a>
                     </li>
                     <li>
-                        <a href="#">设置</a>
+                        <a href="">设置</a>
                     </li>
                     <li class="divider">
                     </li>
                     <li>
-                        <a href="#">帮助</a>
+                        <a href="#!/">帮助</a>
                     </li>
                 </ul>
             </div>

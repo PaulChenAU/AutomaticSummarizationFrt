@@ -11,9 +11,13 @@ angular.module("user")
                 withCredentials:true
             }).then(function(data){
                 // TODO THINGS
+                $scope.data = data.data.data;
+                $scope.data["loginStatus"] = true;
+                $scope.$emit("login", $scope.data);
 
-            }).error(function(error){
+            }).catch(function(error){
                 $scope.loginError = error;
+                console.log($scope.loginError);
             })
             }
         })
