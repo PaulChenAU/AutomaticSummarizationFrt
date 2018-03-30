@@ -3,13 +3,13 @@
             <div class="control-group">
                 <label class="control-label" >用户名:</label>
                 <div class="controls">
-                    <label class="label label-default" >{{ userdata.username }}</label>
+                    <label class="label label-default" >{{ user.username }}</label>
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label" for="inputPassword">昵称:</label>
                 <div class="controls">
-                    <input id="inputPassword" ng-model="userdata.nickname" type="text"/>
+                    <input id="inputPassword" ng-model="user.nickname" type="text"/>
                 </div>
             </div>
             <div class="control-group">
@@ -19,7 +19,7 @@
                             Change Data Failed ({{ changeError.status }}).Try again.
                     </div>
 
-                    <button ng-click="" class="btn btn-primary" >修改</button>
+                    <button ng-click="modifydata(user)" class="btn btn-primary" >修改</button>
                 </div>
             </div>
     </form>

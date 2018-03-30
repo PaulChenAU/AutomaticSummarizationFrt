@@ -21,7 +21,6 @@ angular.module("url",[])
         $scope.jumpUserdata = function(){
             if($scope.login){
                 $location.path("/userdata")
-                $scope.$emit("juserdata", $scope.url)
             }
         }
 

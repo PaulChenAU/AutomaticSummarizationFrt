@@ -10,6 +10,7 @@ angular.module("user",[])
         return {
             restrict: "E",
             templateUrl: "components/user/mainUser.html",
+            scope: true,
             controller: function($scope,default_avatar_url,default_avatar_size){
                 $scope.$on("loginM", function(event, msg){
                     $scope.user = msg;
