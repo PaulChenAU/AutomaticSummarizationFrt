@@ -27,7 +27,6 @@
     .sumbtn{
         position: relative;
         top: 10px;
-
     }
     .arrow{
         margin: 3px;
@@ -52,7 +51,7 @@
 
 </style>
 
-<div ng-controller="deeplearningCtrl">
+<div ng-controller="deeplearningCtrl" data-ng-init="load()">
     <form>
         <fieldset>
             <legend>摘要生成 深度学习</legend>
@@ -62,7 +61,7 @@
                 <label class="summary-label">摘要</label>
             </div>
             <div class="document">
-                <textarea class="form-control documenttext" placeholder="这里输入文档..."/></textarea>
+                <textarea class="form-control documenttext" ng-model="document" placeholder="这里输入文档..."/></textarea>
                 <div class="docu2sum">
 
                         <div class="document-submit">
@@ -70,13 +69,11 @@
                                 <img src="../files/img/arrow2.png" class="arrow">
                             </div>
                             <div class="sumbtn">
-                                <button ng-click="" class="btn btn-primary" >生成摘要</button>
+                                <button ng-click="getSummary(document)" class="btn btn-primary" >生成摘要</button>
                             </div>
                         </div>
                 </div>
                 <textarea class="form-control summarytext" /></textarea>
-                <!-- <input type="text" class="span4 documenttext"/>
-                <input type="text" class="span4 summarytext" /> -->
             </div>
         </fieldset>
     </form>

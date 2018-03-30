@@ -12,4 +12,7 @@ angular.module("mainM")
             $scope.user = msg;
             $scope.$broadcast("udmans", msg);
         })
+        $scope.$on("dl", function(event,msg){
+            $scope.$broadcast("dlans",$scope.user);
+        })
     });
