@@ -1,19 +1,45 @@
 <style>
     .document{
-        height: 350px;
+        height: 440px;
 
     }
+    .document-head{
+        height: 50px;
+    }
 
+    .docu2sum{
+        display: inline-block;
+        width: 10%
+    }
     .documenttext{
-        width: 35%;
+        width: 40%;
         height: 100% !important;
+        display: inline-block;
     }
     .summarytext{
-        width: 35%;
+        width: 40%;
         height: 100% !important;
+        display: inline-block;
     }
     .document-submit{
+        text-align: center;
+    }
+    .document-label{
+        width: 40%;
+        font-size: 140%;
+        text-align: center;
+        display: inline-block;
+    }
+    .docu2sum-label{
+        display: inline-block;
+        width: 10%
+    }
 
+    .summary-label{
+        width: 40%;
+        font-size: 140%;
+        text-align: center;
+        display: inline-block;
     }
 
 </style>
@@ -22,19 +48,27 @@
     <form>
         <fieldset>
             <legend>摘要生成 深度学习</legend>
-            <div class="document">
-                <input type="text" class="documenttext"/>
-                <input type="text" class="summarytext" />
+            <div class="document-head">
+                <label class="document-label">文档</label>
+                <label class="docu2sum-label"></label>
+                <label class="summary-label">摘要</label>
             </div>
-            <div class="document-submit">
-                <button type="submit" class="btn">提交</button>
+            <div class="document">
+                <textarea class="form-control documenttext" placeholder="这里输入文档..."/></textarea>
+                <div class="docu2sum">
+
+                        <div class="document-submit">
+                            <button ng-click="" class="btn btn-primary" >生成摘要</button>
+                        </div>
+                </div>
+                <textarea class="form-control summarytext" /></textarea>
+                <!-- <input type="text" class="span4 documenttext"/>
+                <input type="text" class="span4 summarytext" /> -->
             </div>
         </fieldset>
     </form>
-    <p>
-        <em>Git</em>是一个分布式的版本控制系统，最初由
-        <strong>Linus Torvalds</strong>编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功，尤其是在Ruby社区中。
-    </p>
+    
+
     <table class="table">
         <thead>
             <tr>
