@@ -11,12 +11,14 @@
     <!-- <link href="css/layoutit.css" rel="stylesheet"> -->
     <script src="ngmodules/angular-route.js"></script>
     <script>
-        angular.module("mainM", ["ngRoute", "user", "url"])
+        angular.module("mainM", ["ngRoute", "user", "url", "userdata"])
             .config(['$routeProvider', function ($routeProvider) {
                 $routeProvider.when("/deeplearning", {
                     templateUrl: "views/deeplearning.html"
                 }).when("/pagerank", {
                     templateUrl: "views/pagerank.html"
+                }).when("/userdata", {
+                    templateUrl: "views/userdata.html"
                 }).otherwise({
                     templateUrl: "views/login.html"
                 })
@@ -27,6 +29,7 @@
     <script src="components/user/user.js"></script>
     <script src="controllers/loginCtrl.js"></script>
     <script src="controllers/urlCtrl.js"></script>
+    <script src="controllers/userdataCtrl.js"></script>
 </head>
 
 <body ng-controller="mainCtrl">
@@ -58,7 +61,7 @@
                         相关
                     </li>
                     <li>
-                        <a href="">资料</a>
+                        <a href="" ng-click="jumpUserdata()">资料</a>
                     </li>
                     <li>
                         <a href="">设置</a>

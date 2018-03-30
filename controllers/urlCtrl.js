@@ -14,10 +14,14 @@ angular.module("url",[])
             }
         }
         $scope.jumpPagerank = function(){
-            console.log("to pagerank");
-            console.log($scope.login);
             if($scope.login){
                 $location.path("/pagerank")
+            }
+        }
+        $scope.jumpUserdata = function(){
+            if($scope.login){
+                $location.path("/userdata")
+                $scope.$emit("juserdata", $scope.url)
             }
         }
 

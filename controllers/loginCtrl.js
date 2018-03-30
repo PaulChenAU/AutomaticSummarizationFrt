@@ -14,7 +14,7 @@ angular.module("user")
                 $scope.data = data.data.data;
                 $scope.data["loginStatus"] = true;
                 $scope.$emit("login", $scope.data);
-                $location.path("/deeplearning")
+                $location.path("/deeplearning");
 
             }).catch(function(error){
                 $scope.loginError = error;
