@@ -24,6 +24,14 @@
     .document-submit{
         text-align: center;
     }
+    .sumbtn{
+        position: relative;
+        top: 10px;
+
+    }
+    .arrow{
+        margin: 3px;
+    }
     .document-label{
         width: 40%;
         font-size: 140%;
@@ -58,7 +66,12 @@
                 <div class="docu2sum">
 
                         <div class="document-submit">
-                            <button ng-click="" class="btn btn-primary" >生成摘要</button>
+                            <div class="arrow">
+                                <img src="../files/img/arrow2.png" class="arrow">
+                            </div>
+                            <div class="sumbtn">
+                                <button ng-click="" class="btn btn-primary" >生成摘要</button>
+                            </div>
                         </div>
                 </div>
                 <textarea class="form-control summarytext" /></textarea>
