@@ -30,8 +30,10 @@ angular.module("userdata", [])
                 withCredentials:true
             }).then(function(data){
                 // TODO THINGS
-                $scope.data = data.data.data;
-                console.log($scope.data)
+                $scope.user = data.data.data;
+                console.log($scope.user);
+                $scope.user["loginStatus"] = true;
+                $scope.$emit("udm", $scope.user);
 
             }).catch(function(error){
                 $scope.changeError = error;
