@@ -9,6 +9,7 @@ angular.module("mainM")
             $scope.$broadcast("udlans",$scope.user);
         })
         $scope.$on("udm", function(event,msg){
+            $scope.user = msg;
             $scope.$broadcast("udmans", msg);
         })
     });
