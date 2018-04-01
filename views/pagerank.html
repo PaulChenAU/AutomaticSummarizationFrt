@@ -1,0 +1,172 @@
+<style>
+    .document{
+        height: 440px;
+
+    }
+    .document-head{
+        height: 50px;
+    }
+
+    .docu2sum{
+        display: inline-block;
+        width: 10%
+    }
+    .documenttext{
+        width: 40%;
+        height: 100% !important;
+        display: inline-block;
+    }
+    .summarytext{
+        width: 40%;
+        height: 100% !important;
+        display: inline-block;
+    }
+    .document-submit{
+        text-align: center;
+    }
+    .sumbtn{
+        position: relative;
+        top: 10px;
+    }
+    .arrow{
+        margin: 3px;
+    }
+    .document-label{
+        width: 40%;
+        font-size: 140%;
+        text-align: center;
+        display: inline-block;
+    }
+    .docu2sum-label{
+        display: inline-block;
+        width: 10%
+    }
+
+    .summary-label{
+        width: 40%;
+        font-size: 140%;
+        text-align: center;
+        display: inline-block;
+    }
+
+</style>
+
+<div ng-controller="deeplearningCtrl" data-ng-init="load()">
+    <form>
+        <fieldset>
+            <legend>摘要生成 深度学习</legend>
+            <div class="document-head">
+                <label class="document-label">文档</label>
+                <label class="docu2sum-label"></label>
+                <label class="summary-label">摘要</label>
+            </div>
+            <div class="document">
+                <textarea class="form-control documenttext" ng-model="document" placeholder="这里输入文档..."/></textarea>
+                <div class="docu2sum">
+
+                        <div class="document-submit">
+                            <div class="arrow">
+                                <img src="../files/img/arrow2.png" class="arrow">
+                            </div>
+                            <div class="sumbtn">
+                                <button ng-click="getSummary(document)" class="btn btn-primary" >生成摘要</button>
+                            </div>
+                        </div>
+                </div>
+                <textarea class="form-control summarytext" ng-model="summary" /></textarea>
+            </div>
+        </fieldset>
+    </form>
+    
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    编号
+                </th>
+                <th>
+                    产品
+                </th>
+                <th>
+                    交付时间
+                </th>
+                <th>
+                    状态
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    1
+                </td>
+                <td>
+                    TB - Monthly
+                </td>
+                <td>
+                    01/04/2012
+                </td>
+                <td>
+                    Default
+                </td>
+            </tr>
+            <tr class="success">
+                <td>
+                    1
+                </td>
+                <td>
+                    TB - Monthly
+                </td>
+                <td>
+                    01/04/2012
+                </td>
+                <td>
+                    Approved
+                </td>
+            </tr>
+            <tr class="error">
+                <td>
+                    2
+                </td>
+                <td>
+                    TB - Monthly
+                </td>
+                <td>
+                    02/04/2012
+                </td>
+                <td>
+                    Declined
+                </td>
+            </tr>
+            <tr class="warning">
+                <td>
+                    3
+                </td>
+                <td>
+                    TB - Monthly
+                </td>
+                <td>
+                    03/04/2012
+                </td>
+                <td>
+                    Pending
+                </td>
+            </tr>
+            <tr class="info">
+                <td>
+                    4
+                </td>
+                <td>
+                    TB - Monthly
+                </td>
+                <td>
+                    04/04/2012
+                </td>
+                <td>
+                    Call in to confirm
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
