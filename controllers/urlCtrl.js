@@ -23,5 +23,10 @@ angular.module("url",[])
                 $location.path("/userdata")
             }
         }
+        $scope.jumpDiagram = function(){
+            if($scope.login){
+                $location.path("/diagram")
+            }
+        }
 
     })
