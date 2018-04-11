@@ -13,7 +13,7 @@ angular.module("url",[])
                 $location.path("/deeplearning")
             }
         }
-        $scope.jumptextrank = function(){
+        $scope.jumpTextrank = function(){
             if($scope.login){
                 $location.path("/textrank")
             }
