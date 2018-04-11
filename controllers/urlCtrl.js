@@ -13,9 +13,9 @@ angular.module("url",[])
                 $location.path("/deeplearning")
             }
         }
-        $scope.jumpPagerank = function(){
+        $scope.jumptextrank = function(){
             if($scope.login){
-                $location.path("/pagerank")
+                $location.path("/textrank")
             }
         }
         $scope.jumpUserdata = function(){

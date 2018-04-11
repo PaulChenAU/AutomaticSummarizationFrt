@@ -15,8 +15,8 @@
             .config(['$routeProvider', function ($routeProvider) {
                 $routeProvider.when("/deeplearning", {
                     templateUrl: "views/deeplearning.html"
-                }).when("/pagerank", {
-                    templateUrl: "views/pagerank.html"
+                }).when("/textrank", {
+                    templateUrl: "views/textrank.html"
                 }).when("/userdata", {
                     templateUrl: "views/userdata.html"
                 }).when("/diagram", {
@@ -56,7 +56,7 @@
                         <a href="" ng-click="jumpDeeplearning()" >深度学习</a>
                     </li>
                     <li>
-                        <a href="" ng-click="jumpPagerank()">基于PageRank</a>
+                        <a href="" ng-click="jumptextrank()">基于textrank</a>
                     </li>
                     <li>
                         <a href="" ng-click="jumpDiagram()">基于图</a>
