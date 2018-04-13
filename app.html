@@ -53,19 +53,19 @@
                     <li class="nav-header">
                         方法分类
                     </li>
-                    <li class="active">
+                    <li ng-class="active == 'deeplearning'? 'active': null">
                         <a href="" ng-click="jumpDeeplearning()" >深度学习</a>
                     </li>
-                    <li>
+                    <li ng-class="active == 'textrank'? 'active' : null">
                         <a href="" ng-click="jumpTextrank()">基于Textrank</a>
                     </li>
-                    <li>
+                    <li ng-class="active == 'diagram'? 'active' : null">
                         <a href="" ng-click="jumpDiagram()">基于图</a>
                     </li>
                     <li class="nav-header">
                         相关
                     </li>
-                    <li>
+                    <li ng-class="active == 'userdata'? 'active': null">
                         <a href="" ng-click="jumpUserdata()">资料</a>
                     </li>
                     <li>
