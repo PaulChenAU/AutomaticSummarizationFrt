@@ -33,6 +33,11 @@ angular.module("summary")
             
                 $scope.res = data.data.data;
                 $scope.summary = data.data.data.summary;
+                let record = {
+                    "document": document,
+                    "summary": $scope.summary
+                }
+                $scope.history.push(record);
 
             }).catch(function(error){
                 $scope.textrankError = error;
