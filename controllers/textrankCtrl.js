@@ -3,6 +3,15 @@ angular.module("summary")
     .constant("textranksummaryhistoryUrl", "http://localhost:5800/textrank/history")
     .controller("textrankCtrl", function($scope, $http, textranksummaryUrl, textranksummaryhistoryUrl){
 
+        $http.get(textranksummaryhistoryUrl, { withCredentials: true })
+            .then(function(data){
+                
+                $scope.history = data.data.data.history;
+
+            }).catch(function(error){
+                $scope.historyError = error;
+            });
+
         $scope.load = function(){
            $scope.$emit("dl","");
         };
