@@ -10,8 +10,9 @@
     <link href="css/app.css" rel="stylesheet">
     <!-- <link href="css/layoutit.css" rel="stylesheet"> -->
     <script src="ngmodules/angular-route.js"></script>
+    <script src="ngmodules/angular-sanitize.js"></script>
     <script>
-        angular.module("mainM", ["ngRoute", "user", "url", "userdata", "summary"])
+        angular.module("mainM", ["ngRoute", "ngSanitize","user", "url", "userdata", "summary"])
             .config(['$routeProvider', function ($routeProvider) {
                 $routeProvider.when("/deeplearning", {
                     templateUrl: "views/deeplearning.html"
@@ -35,6 +36,7 @@
     <script src="controllers/summaryCtrl.js"></script>
     <script src="controllers/deeplearningCtrl.js"></script>
     <script src="controllers/textrankCtrl.js"></script>
+    <script src="controllers/my.js"></script>
 </head>
 
 <body ng-controller="mainCtrl">
