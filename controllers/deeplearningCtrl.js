@@ -1,7 +1,16 @@
 angular.module("summary")
     .constant("getSummaryUrl", "http://localhost:5800/deeplearning/summary")
     .constant("summaryHistoryUrl", "http://localhost:5800/deeplearning/history")
-    .controller("deeplearningCtrl", function($scope, $http, getSummaryUrl){
+    .controller("deeplearningCtrl", function($scope, $http, getSummaryUrl, summaryHistoryUrl){
+
+        $http.get(summaryHistoryUrl, { withCredentials: true })
+            .then(function(data){
+                
+                $scope.history = data.data.data.history;
+
+            }).catch(function(error){
+                $scope.historyError = error;
+            });
 
         $scope.load = function(){
            $scope.$emit("dl","");
