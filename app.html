@@ -11,8 +11,10 @@
     <!-- <link href="css/layoutit.css" rel="stylesheet"> -->
     <script src="ngmodules/angular-route.js"></script>
     <script src="ngmodules/angular-sanitize.js"></script>
+    <script src="ngmodules/angular-bind-html-compile.js"></script>
+
     <script>
-        angular.module("mainM", ["ngRoute", "ngSanitize","user", "url", "userdata", "summary"])
+        angular.module("mainM", ["ngRoute", "ngSanitize","user", "url", "userdata", "summary", "angular-bind-html-compile"])
             .config(['$routeProvider', function ($routeProvider) {
                 $routeProvider.when("/deeplearning", {
                     templateUrl: "views/deeplearning.html"

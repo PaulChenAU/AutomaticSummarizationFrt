@@ -79,7 +79,7 @@
     </form>
     
 
-    <table class="table">
+    <table class="table"  id="documentsummary">
         <thead>
             <tr>
                 <th>
@@ -101,11 +101,11 @@
                 <td>
                     {{ $index + 1 }}
                 </td>
-                <td>
-                    {{ record.document }}
+                <td bind-html-compile="record.document">
+                    <!-- {{ record.document }} -->
                 </td>
-                <td>
-                    {{ record.summary }}
+                <td bind-html-compile="record.summary">
+                    <!-- {{ record.summary }} -->
                 </td>
                 <td>
                     ..
