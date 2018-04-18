@@ -23,7 +23,7 @@ angular.module("summary")
                         if (j < split_document.length-1){
                             modify_each_sentence = "<span class=\"document" + i + "-" + j + "\" ng-mouseenter=\"documentEnter('" + i + "-" + j + "');\" ng-mouseleave= \"documentLeave('" + i + "-" + j + "');\" >" + split_document[j] + ",</span>";
                         }else{
-                            modify_each_sentence = "<span class=\"document" + i + j + "\" ng-mouseenter=\"documentEnter('" + i + j + "');\">" + split_document[j] + "。</span>";
+                            modify_each_sentence = "<span class=\"document" + i + j + "\" ng-mouseenter=\"documentEnter('" + i + j + "');\" ng-mouseleave= \"documentLeave('" + i + "-" + j + "');\" >" + split_document[j] + "。</span>";
                         }
                         modify_document += modify_each_sentence;
                     }
@@ -34,9 +34,9 @@ angular.module("summary")
                     modify_summary = "";
                     for (let j=0; j< split_summary.length; j++){
                         if (j < split_summary.length-1){
-                            modify_each_sentence = "<span class=\"summary" + i + "-" + j + "\" ng-mouseenter=\"documentSelect('" + i + "-" + j + "');\">" + split_summary[j] + ",</span>";
+                            modify_each_sentence = "<span class=\"summary" + i + "-" + j + "\" ng-mouseenter=\"summaryEnter('" + i + "-" + j + "');\" ng-mouseleave= \"summaryLeave('" + i + "-" + j + "');\" >" + split_summary[j] + ",</span>";
                         }else{
-                            modify_each_sentence = "<span class=\"summary" + i + j + "\">" + split_summary[j] + "。</span>";
+                            modify_each_sentence = "<span class=\"summary" + i + "-" + j + "\" ng-mouseenter=\"summaryEnter('" + i + "-" + j + "');\" ng-mouseleave= \"summaryLeave('" + i + "-" + j + "');\" >" + split_summary[j] + "。</span>";
                         }
                         modify_summary += modify_each_sentence;
                     }
@@ -68,6 +68,44 @@ angular.module("summary")
                 }
             }
             
+        }
+
+        $scope.summaryEnter = function(num){
+            let historyNumber_number = num.split("-");
+            let summaryS = document.getElementsByClassName("summary" + num);
+            angular.element(summaryS).addClass("hoveryellow");
+            historyNumber = Number(historyNumber_number[0]);
+            number = Number(historyNumber_number[1])
+            let summaryText = $scope.split_summary_history[historyNumber][number];
+
+            for(var j=0;j <$scope.split_document_history[historyNumber].length; j++){
+                
+                if($scope.split_document_history[historyNumber][j] == summaryText){
+                    let documentNumber = "summary" + historyNumber[0] + "-" + j;
+                    let documentS = document.getElementsByClassName("document" + historyNumber_number[0] + "-" + j);
+                    angular.element(documentS).addClass("hoveryellow");
+                    break;
+                }
+            }
+        }
+
+        $scope.summaryLeave = function(num){
+            let historyNumber_number = num.split("-");
+            let summaryS = document.getElementsByClassName("summary" + num);
+            angular.element(summaryS).removeClass("hoveryellow");
+            historyNumber = Number(historyNumber_number[0]);
+            number = Number(historyNumber_number[1])
+            let summaryText = $scope.split_summary_history[historyNumber][number];
+
+            for(var j=0;j <$scope.split_document_history[historyNumber].length; j++){
+                
+                if($scope.split_document_history[historyNumber][j] == summaryText){
+                    let documentNumber = "summary" + historyNumber[0] + "-" + j;
+                    let documentS = document.getElementsByClassName("document" + historyNumber_number[0] + "-" + j);
+                    angular.element(documentS).removeClass("hoveryellow");
+                    break;
+                }
+            }
         }
 
         $scope.documentLeave = function(num){
