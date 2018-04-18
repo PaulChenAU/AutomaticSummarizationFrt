@@ -21,9 +21,9 @@ angular.module("summary")
                     modify_document = "";
                     for (let j=0; j< split_document.length; j++){
                         if (j < split_document.length-1){
-                            modify_each_sentence = "<span class=\"document" + i + "-" + j + "\" ng-mouseenter=\"documentSelect('" + i + "-" + j + "');\">" + split_document[j] + ",</span>";
+                            modify_each_sentence = "<span class=\"document" + i + "-" + j + "\" ng-mouseenter=\"documentEnter('" + i + "-" + j + "');\" ng-mouseleave= \"documentLeave('" + i + "-" + j + "');\" >" + split_document[j] + ",</span>";
                         }else{
-                            modify_each_sentence = "<span class=\"document" + i + j + "\" ng-mouseenter=\"documentSelect('" + i + j + "');\">" + split_document[j] + "。</span>";
+                            modify_each_sentence = "<span class=\"document" + i + j + "\" ng-mouseenter=\"documentEnter('" + i + j + "');\">" + split_document[j] + "。</span>";
                         }
                         modify_document += modify_each_sentence;
                     }
@@ -50,7 +50,7 @@ angular.module("summary")
             });
 
         
-        $scope.documentSelect = function(num){
+        $scope.documentEnter = function(num){
             let historyNumber_number = num.split("-");
             let documentS = document.getElementsByClassName("document" + num);
             angular.element(documentS).addClass("hoveryellow");
@@ -58,24 +58,36 @@ angular.module("summary")
             number = Number(historyNumber_number[1])
             let documentText = $scope.split_document_history[historyNumber][number];
             for(var j=0;j <$scope.split_summary_history[historyNumber].length; j++){
-                console.log($scope.split_summary_history[historyNumber][j]);
+                
                 if($scope.split_summary_history[historyNumber][j] == documentText){
                     let summaryNumber = "summary" + historyNumber[0] + "-" + j;
                     let summaryS = document.getElementsByClassName("summary" + historyNumber_number[0] + "-" + j);
                     angular.element(summaryS).addClass("hoveryellow");
+                    break;
                 }
             }
-            console.log(j);
+            
+        }
+
+        $scope.documentLeave = function(num){
+            let historyNumber_number = num.split("-");
+            let documentS = document.getElementsByClassName("document" + num);
+            angular.element(documentS).removeClass("hoveryellow");
+            historyNumber = Number(historyNumber_number[0]);
+            number = Number(historyNumber_number[1])
+            let documentText = $scope.split_document_history[historyNumber][number];
+            for(var j=0;j <$scope.split_summary_history[historyNumber].length; j++){
+
+                if($scope.split_summary_history[historyNumber][j] == documentText){
+                    let summaryNumber = "summary" + historyNumber[0] + "-" + j;
+                    let summaryS = document.getElementsByClassName("summary" + historyNumber_number[0] + "-" + j);
+                    angular.element(summaryS).removeClass("hoveryellow");
+                    break;
+                }
+            }
             
         }
         
-        $scope.myalert = function(iets){
-            var dit = this;
-            console.log(dit);
-            var par = document.getElementsByClassName("document01")
-            console.log(par);
-            angular.element(par).addClass("hoveryellow");
-        }
 
         $scope.load = function(){
            $scope.$emit("dl","");
