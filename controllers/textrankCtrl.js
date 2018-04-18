@@ -15,7 +15,7 @@ angular.module("summary")
                     // console.log(document_text);
                     var split_document = document_text.split(/[,，。!?]/);
                     var split_summary = summary_text.split(/[,，。!?]/);
-                    $scope.split_document_history.push(split_summary);
+                    $scope.split_document_history.push(split_document);
                     $scope.split_summary_history.push(split_summary);
 
                     modify_document = "";
@@ -57,6 +57,7 @@ angular.module("summary")
             historyNumber = Number(historyNumber_number[0]);
             number = Number(historyNumber_number[1])
             let documentText = $scope.split_document_history[historyNumber][number];
+
             for(var j=0;j <$scope.split_summary_history[historyNumber].length; j++){
                 
                 if($scope.split_summary_history[historyNumber][j] == documentText){
