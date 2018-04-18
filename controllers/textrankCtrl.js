@@ -12,9 +12,9 @@ angular.module("summary")
                 for(let i=0;i <$scope.history.length; i++){
                     document_text = $scope.history[i].document;
                     summary_text = $scope.history[i].summary;
-                    // console.log(document_text);
-                    var split_document = document_text.split(/[,，。!?]/);
-                    var split_summary = summary_text.split(/[,，。!?]/);
+                    
+                    var split_document = document_text.split(/[,，。！；!?]/);
+                    var split_summary = summary_text.split(/[,，。！；!?]/);
                     $scope.split_document_history.push(split_document);
                     $scope.split_summary_history.push(split_summary);
 
@@ -77,10 +77,10 @@ angular.module("summary")
             historyNumber = Number(historyNumber_number[0]);
             number = Number(historyNumber_number[1])
             let summaryText = $scope.split_summary_history[historyNumber][number];
-
             for(var j=0;j <$scope.split_document_history[historyNumber].length; j++){
                 
                 if($scope.split_document_history[historyNumber][j] == summaryText){
+                    
                     let documentNumber = "summary" + historyNumber[0] + "-" + j;
                     let documentS = document.getElementsByClassName("document" + historyNumber_number[0] + "-" + j);
                     angular.element(documentS).addClass("hoveryellow");
