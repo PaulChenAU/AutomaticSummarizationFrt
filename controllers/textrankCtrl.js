@@ -61,7 +61,7 @@ angular.module("summary")
                 }
             },{withCredentials: true})
                 .then(function(data){
-                    $scope.pagecount = data.data.data.history.sum;
+                    $scope.pagecount = Math.ceil(data.data.data.history.sum/pagesize);
                     $scope.history = data.data.data.history.data;
                 $scope.split_document_history = [];
                 $scope.split_summary_history = [];
