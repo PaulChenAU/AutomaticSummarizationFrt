@@ -53,7 +53,7 @@ angular.module("summary")
         //         $scope.historyError = error;
         //     });
         
-        $scope.selectPgae = function(page){
+        $scope.selectPage = function(page){
             $http.post(textranksummaryhistoryUrl,{
                 data:{
                     page: page,
@@ -101,7 +101,7 @@ angular.module("summary")
                 }
 
                 }).catch(function(error){
-                    $scope.historyError = error
+                    $scope.historyError = error;
                 });
         }
 
@@ -194,7 +194,7 @@ angular.module("summary")
 
         $scope.load = function(){
            $scope.$emit("dl","");
-           $scope.selectPgae(1);
+           $scope.selectPage(1);
 
         };
         $scope.$on("dlans", function(event, msg){
