@@ -4,7 +4,7 @@ angular.module("summary")
     .constant("pagesize", 1)
     .controller("textrankCtrl", function($scope, $compile,$http, textranksummaryUrl, pagesize, textranksummaryhistoryUrl){
 
-        var pagecount = 0;
+        var pagecount = 1;
         $scope.pagecount = pagecount;
         // $http.get(textranksummaryhistoryUrl, { withCredentials: true })
         //     .then(function(data){
@@ -185,13 +185,17 @@ angular.module("summary")
         };
         
         $scope.range = function(n){
-            return new Array(n);
+            let range_ans = [];
+            for(let i=0; i<n; i++){
+                range_ans.push(i);
+            }
+            return range_ans;
         };
 
         $scope.load = function(){
            $scope.$emit("dl","");
            $scope.selectPgae(1);
-        
+
         };
         $scope.$on("dlans", function(event, msg){
             $scope.user = msg;
