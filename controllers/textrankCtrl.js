@@ -1,12 +1,68 @@
 angular.module("summary")
     .constant("textranksummaryUrl", "http://localhost:5800/textrank/summary")
     .constant("textranksummaryhistoryUrl", "http://localhost:5800/textrank/history")
-    .controller("textrankCtrl", function($scope, $compile,$http, textranksummaryUrl, textranksummaryhistoryUrl){
+    .constant("pagesize", 1)
+    .controller("textrankCtrl", function($scope, $compile,$http, textranksummaryUrl, pagesize, textranksummaryhistoryUrl){
 
-        $http.get(textranksummaryhistoryUrl, { withCredentials: true })
-            .then(function(data){
+        var pagecount = 0;
+        $scope.pagecount = pagecount;
+        // $http.get(textranksummaryhistoryUrl, { withCredentials: true })
+        //     .then(function(data){
                 
-                $scope.history = data.data.data.history;
+        //         $scope.history = data.data.data.history;
+        //         $scope.split_document_history = [];
+        //         $scope.split_summary_history = [];
+        //         for(let i=0;i <$scope.history.length; i++){
+        //             document_text = $scope.history[i].document;
+        //             summary_text = $scope.history[i].summary;
+                    
+        //             var split_document = document_text.split(/[,，。！；“”!?]/);
+        //             var split_summary = summary_text.split(/[,，。！；“”!?]/);
+        //             $scope.split_document_history.push(split_document);
+        //             $scope.split_summary_history.push(split_summary);
+
+        //             modify_document = "";
+        //             for (let j=0; j< split_document.length; j++){
+        //                 if (j < split_document.length-1){
+        //                     modify_each_sentence = "<span class=\"document" + i + "-" + j + "\" ng-mouseenter=\"documentEnter('" + i + "-" + j + "');\" ng-mouseleave= \"documentLeave('" + i + "-" + j + "');\" >" + split_document[j] + ",</span>";
+        //                 }else{
+        //                     modify_each_sentence = "<span class=\"document" + i + j + "\" ng-mouseenter=\"documentEnter('" + i + j + "');\" ng-mouseleave= \"documentLeave('" + i + "-" + j + "');\" >" + split_document[j] + "。</span>";
+        //                 }
+        //                 modify_document += modify_each_sentence;
+        //             }
+                    
+
+        //             $scope.history[i].document = modify_document; 
+
+
+        //             modify_summary = "";
+        //             for (let j=0; j< split_summary.length; j++){
+        //                 if (j < split_summary.length-1){
+        //                     modify_each_sentence = "<span class=\"summary" + i + "-" + j + "\" ng-mouseenter=\"summaryEnter('" + i + "-" + j + "');\" ng-mouseleave= \"summaryLeave('" + i + "-" + j + "');\" >" + split_summary[j] + ",</span>";
+        //                 }else{
+        //                     modify_each_sentence = "<span class=\"summary" + i + "-" + j + "\" ng-mouseenter=\"summaryEnter('" + i + "-" + j + "');\" ng-mouseleave= \"summaryLeave('" + i + "-" + j + "');\" >" + split_summary[j] + "。</span>";
+        //                 }
+        //                 modify_summary += modify_each_sentence;
+        //             }
+        //             $scope.history[i].summary = modify_summary; 
+        //         }
+                
+
+
+        //     }).catch(function(error){
+        //         $scope.historyError = error;
+        //     });
+        
+        $scope.selectPgae = function(page){
+            $http.post(textranksummaryhistoryUrl,{
+                data:{
+                    page: page,
+                    count: pagesize
+                }
+            },{withCredentials: true})
+                .then(function(data){
+                    $scope.pagecount = data.data.data.history.sum;
+                    $scope.history = data.data.data.history.data;
                 $scope.split_document_history = [];
                 $scope.split_summary_history = [];
                 for(let i=0;i <$scope.history.length; i++){
@@ -31,7 +87,7 @@ angular.module("summary")
 
                     $scope.history[i].document = modify_document; 
 
-                    
+
                     modify_summary = "";
                     for (let j=0; j< split_summary.length; j++){
                         if (j < split_summary.length-1){
@@ -43,12 +99,12 @@ angular.module("summary")
                     }
                     $scope.history[i].summary = modify_summary; 
                 }
-                
 
+                }).catch(function(error){
+                    $scope.historyError = error
+                });
+        }
 
-            }).catch(function(error){
-                $scope.historyError = error;
-            });
 
         
         $scope.documentEnter = function(num){
@@ -126,11 +182,16 @@ angular.module("summary")
                 }
             }
             
-        }
+        };
         
+        $scope.range = function(n){
+            return new Array(n);
+        };
 
         $scope.load = function(){
            $scope.$emit("dl","");
+           $scope.selectPgae(1);
+        
         };
         $scope.$on("dlans", function(event, msg){
             $scope.user = msg;
