@@ -31,6 +31,7 @@ angular.module("summary")
 
                     $scope.history[i].document = modify_document; 
 
+                    
                     modify_summary = "";
                     for (let j=0; j< split_summary.length; j++){
                         if (j < split_summary.length-1){
