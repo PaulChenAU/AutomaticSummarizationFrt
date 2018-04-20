@@ -9,6 +9,7 @@ angular.module("summary")
         $scope.pagecount = pagecount;
 
         $scope.getPageClass = function(page){
+            console.log(page);
             return $scope.selectedPage == page? activeClass: "";
         };
 
@@ -69,6 +70,7 @@ angular.module("summary")
                 .then(function(data){
                     $scope.pagecount = Math.ceil(data.data.data.history.sum/pagesize);
                     $scope.history = data.data.data.history.data;
+                    $scope.selectedPage = page;
                 $scope.split_document_history = [];
                 $scope.split_summary_history = [];
                 for(let i=0;i <$scope.history.length; i++){
