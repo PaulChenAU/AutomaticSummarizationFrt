@@ -2,10 +2,16 @@ angular.module("summary")
     .constant("textranksummaryUrl", "http://localhost:5800/textrank/summary")
     .constant("textranksummaryhistoryUrl", "http://localhost:5800/textrank/history")
     .constant("pagesize", 1)
-    .controller("textrankCtrl", function($scope, $compile,$http, textranksummaryUrl, pagesize, textranksummaryhistoryUrl){
+    .constant("activeClass", "btn-primary")
+    .controller("textrankCtrl", function($scope, $compile,$http, textranksummaryUrl, pagesize, textranksummaryhistoryUrl, activeClass){
 
         var pagecount = 1;
         $scope.pagecount = pagecount;
+
+        $scope.getPageClass = function(page){
+            return $scope.selectedPage == page? activeClass: "";
+        };
+
         // $http.get(textranksummaryhistoryUrl, { withCredentials: true })
         //     .then(function(data){
                 
