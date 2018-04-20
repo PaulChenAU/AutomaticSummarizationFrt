@@ -9,7 +9,6 @@ angular.module("summary")
         $scope.pagecount = pagecount;
 
         $scope.getPageClass = function(page){
-            console.log(page);
             return $scope.selectedPage == page? activeClass: "";
         };
 
