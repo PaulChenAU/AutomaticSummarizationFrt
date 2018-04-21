@@ -21,6 +21,10 @@
         height: 100% !important;
         display: inline-block;
     }
+    .selectedCompress{
+        width: 50%;
+        margin: 2px;
+    }
     .document-submit{
         text-align: center;
     }
@@ -63,7 +67,11 @@
             <div class="document">
                 <textarea class="form-control documenttext" ng-model="document" placeholder="这里输入文档..."/></textarea>
                 <div class="docu2sum">
-
+                        <div class="compress-rate">
+                            压缩率:
+                            <select class="selectedCompress" ng-init="selectedCompressrate = compressrate[4]" ng-model="selectedCompressrate" ng-options="x for x in compressrate">
+                            </select>
+                        </div>
                         <div class="document-submit">
                             <div class="arrow">
                                 <img src="../files/img/arrow2.png" class="arrow">

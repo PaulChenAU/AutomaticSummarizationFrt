@@ -8,6 +8,11 @@ angular.module("summary")
         var pagecount = 1;
         $scope.pagecount = pagecount;
 
+        $scope.compressrate = [];
+        for(let i=1; i<10;i++){
+            $scope.compressrate.push("" + 10 * i + "%");
+        }
+
         $scope.getPageClass = function(page){
             return $scope.selectedPage == page? activeClass: "";
         };
@@ -226,7 +231,7 @@ angular.module("summary")
                     "document": document,
                     "summary": $scope.summary
                 }
-                $scope.history.push(record);
+                // $scope.history.push(record);
 
             }).catch(function(error){
                 $scope.textrankError = error;
