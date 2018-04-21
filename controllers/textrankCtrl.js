@@ -218,7 +218,8 @@ angular.module("summary")
             $scope.user.document = document;
             $http.post(textranksummaryUrl,{
                 data:{
-                    data: $scope.user
+                    data: $scope.user,
+                    compressrate: $scope.selectedCompressrate
                 }
             },{
                 withCredentials:true
