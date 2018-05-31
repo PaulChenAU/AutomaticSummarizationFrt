@@ -24,6 +24,8 @@
                     templateUrl: "views/userdata.html"
                 }).when("/diagram", {
                     templateUrl: "views/diagram.html"
+                }).when("/mmr",{
+                    templateUrl: "views/mmr.html"
                 }).otherwise({
                     templateUrl: "views/login.html"
                 })
@@ -64,6 +66,9 @@
                     </li>
                     <li ng-class="active == 'diagram'? 'active' : null">
                         <a href="" ng-click="jumpDiagram()">基于图</a>
+                    </li>
+                    <li ng-class="active == 'mmr'? 'active' : null">
+                        <a href="" ng-click="jumpMmr()">基于MMR</a>
                     </li>
                     <li class="nav-header">
                         相关

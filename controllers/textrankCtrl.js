@@ -1,7 +1,7 @@
 angular.module("summary")
     .constant("textranksummaryUrl", "http://localhost:5800/textrank/summary")
     .constant("textranksummaryhistoryUrl", "http://localhost:5800/textrank/history")
-    .constant("pagesize", 2)
+    .constant("pagesize", 5)
     .constant("activeClass", "btn-primary")
     .controller("textrankCtrl", function($scope, $compile,$http, textranksummaryUrl, pagesize, textranksummaryhistoryUrl, activeClass){
 
