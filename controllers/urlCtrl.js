@@ -35,5 +35,11 @@ angular.module("url",[])
                 $scope.active = "diagram";
             }
         }
+        $scope.jumpMmr = function(){
+            if($scope.login){
+                $location.path("/mmr");
+                $scope.active = "mmr";
+            }
+        }
 
     })
