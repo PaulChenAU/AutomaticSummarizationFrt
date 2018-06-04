@@ -40,6 +40,7 @@
     <script src="controllers/summaryCtrl.js"></script>
     <script src="controllers/deeplearningCtrl.js"></script>
     <script src="controllers/textrankCtrl.js"></script>
+    <script src="controllers/mmrCtrl.js"></script>
 </head>
 
 <body ng-controller="mainCtrl">
@@ -64,9 +65,9 @@
                     <li ng-class="active == 'textrank'? 'active' : null">
                         <a href="" ng-click="jumpTextrank()">基于Textrank</a>
                     </li>
-                    <li ng-class="active == 'diagram'? 'active' : null">
+                    <!-- <li ng-class="active == 'diagram'? 'active' : null">
                         <a href="" ng-click="jumpDiagram()">基于图</a>
-                    </li>
+                    </li> -->
                     <li ng-class="active == 'mmr'? 'active' : null">
                         <a href="" ng-click="jumpMmr()">基于MMR</a>
                     </li>
